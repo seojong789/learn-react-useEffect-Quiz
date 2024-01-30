@@ -5,10 +5,10 @@ const QuestionTimer = ({ timeout, onTimeout, mode }) => {
 
   useEffect(() => {
     console.log('Setting Timer');
-    const timer = setTimeout(() => {
-      onTimeout;
-    }, timeout);
-    // const timer = setTimeout(onTimeout, timeout);
+    // const timer = setTimeout(() => {
+    //   onTimeout();
+    // }, timeout);
+    const timer = setTimeout(onTimeout, timeout); // 위 코드로 실행하면 onTimeout is not a function이라는 오류가 발생함. 그렇다고 onTimeout; 이라고하면 정상 동작 안 해.
 
     return () => {
       clearTimeout(timer);
